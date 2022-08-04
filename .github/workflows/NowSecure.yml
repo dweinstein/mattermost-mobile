@@ -1,0 +1,23 @@
+name: "NowSecure"
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+
+jobs:
+
+ scan:
+    runs-on: ubuntu-latest
+   
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+              
+      - name: NowSecure-SBOM
+        uses: nowsecure/nowsecure-sbom-action@v1
+        timeout-minutes: 90
+        with:
+          token: ${{ secrets.NS_TOKEN }}
+          report_id: "d101fd3c-13f0-11ed-a785-db03c061484f"
+          group_id: "602abed9-4c66-453d-8431-da0195b682de"
+          
