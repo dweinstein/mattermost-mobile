@@ -18,7 +18,7 @@ jobs:
 
       # demonstrates getting an existing report and converting to sarif
       - name: NowSecure GHAS
-        uses: nowsecure/nowsecure-action/convert-sarif@main
+        uses: nowsecure/nowsecure-action/convert-sarif@b4158ef47dfa92b21b5a0e4ebff98cd5083bb3b8
         timeout-minutes: 60
         with:
             token: ${{ secrets.NS_TOKEN_KL }}
@@ -34,7 +34,7 @@ jobs:
 
       # demonstrates getting an existing report and uploading the dependencies to dependency graph
       - name: NowSecure-SBOM
-        uses: nowsecure/nowsecure-action/convert-sarif@main
+        uses: nowsecure/nowsecure-action/convert-sarif@b4158ef47dfa92b21b5a0e4ebff98cd5083bb3b8
         timeout-minutes: 60
         with:
           token: ${{ secrets.NS_TOKEN_KL }}
