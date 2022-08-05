@@ -17,27 +17,17 @@ jobs:
         run: sudo apt-get install -y ripgrep
 
       - name: NowSecure GHAS
-        uses: nowsecure/nowsecure-action@main
-        timeout-minutes: 60
-        with:
-            token: ${{ secrets.NS_TOKEN }}
-            report_id: "d101fd3c-13f0-11ed-a785-db03c061484f"
-            group_id: "602abed9-4c66-453d-8431-da0195b682de"
-            enable_dependencies: false
-            enable_sarif: true
-
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          path: NowSecure.sarif
-
-      - name: NowSecure-SBOM
         uses: nowsecure/nowsecure-action/convert-sarif@main
         timeout-minutes: 60
         with:
-          token: ${{ secrets.NS_TOKEN }}
-          report_id: "d101fd3c-13f0-11ed-a785-db03c061484f"
-          group_id: "602abed9-4c66-453d-8431-da0195b682de"
-          enable_dependencies: true
-          enable_sarif: false
+            token: ${{ secrets.NS_TOKEN }}
+            report_id: "ce05e69c-14b9-11ed-a660-a37da001b094"
+            group_id: "38a6ce91-7920-493d-958a-b912e1bdb506"
+            enable_dependencies: true
+            enable_sarif: true
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: NowSecure.sarif
 
